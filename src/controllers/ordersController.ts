@@ -13,6 +13,6 @@ export class OrdersController {
     }
 
     public searchOrders(item: string) {
-        return this.orders.find(order => order.item.includes(item));
+        return this.orders.filter(order => order.item.includes(item));
     }
 }

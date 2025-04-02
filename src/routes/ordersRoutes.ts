@@ -30,7 +30,26 @@ router.post('/orders', (req, res) => {
     const order = ordersController.createOrder(req.body);
     res.status(201).json(order);
 });
-
+/**
+ * @openapi
+ * /api/orders/search:
+ *   get:
+ *     summary: Search for orders by item name
+ *     parameters:
+ *       - in: query
+ *         name: item
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The item name to search for.
+ *     responses:
+ *       200:
+ *         description: An array of orders matching the search criteria.
+ */
+router.get('/orders/search', (req, res) => {
+    const orders = ordersController.searchOrders(req.query.item as string);
+    res.json(orders);
+});
 /**
  * @openapi
  * /api/orders/{id}:
@@ -58,25 +77,6 @@ router.get('/orders/:id', (req, res) => {
     }
 });
 
-/**
- * @openapi
- * /api/orders/search:
- *   get:
- *     summary: Search for orders by item name
- *     parameters:
- *       - in: query
- *         name: item
- *         schema:
- *           type: string
- *         required: true
- *         description: The item name to search for.
- *     responses:
- *       200:
- *         description: An array of orders matching the search criteria.
- */
-router.get('/orders/search', (req, res) => {
-    const orders = ordersController.searchOrders(req.query.item as string);
-    res.json(orders);
-});
+
 
 export default router;
