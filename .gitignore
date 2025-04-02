@@ -27,3 +27,4 @@ coverage/
 # OS generated files
 .DS_Store
 Thumbs.db
+playwright-report/
