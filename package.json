@@ -4,11 +4,12 @@
   "description": "A simple API project with CI/CD pipeline using TypeScript, Playwright, and GitHub Actions.",
   "main": "dist/app.js",
   "scripts": {
-    "test": "jest",
+    "test:unit": "jest --testPathPattern=tests/unit --forceExit",
     "test:e2e": "playwright test",
     "build": "tsc",
     "start": "node dist/src/app.js",
-    "dev": "ts-node src/app.ts"
+    "dev": "ts-node src/app.ts",
+    "coverage": "jest --testPathPattern=tests/unit --forceExit --coverage"
   },
   "dependencies": {
     "express": "^4.17.1",
