@@ -5,7 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "test:unit": "jest --testPathPattern=tests/unit --forceExit",
-    "test:e2e": "playwright test",
+    "test:e2e": "npx playwright test",
     "build": "tsc",
     "start": "node dist/src/app.js",
     "dev": "ts-node src/app.ts",

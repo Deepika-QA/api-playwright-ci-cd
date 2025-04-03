@@ -53,7 +53,7 @@ jobs:
         run: echo "Deploying to UAT environment... (We should be running npm run deploy:uat in actual deployment)"
 
       - name: Run Playwright E2E tests
-        run: npx run test:e2e
+        run: npm run test:e2e
 
   production:
     runs-on: ubuntu-latest
