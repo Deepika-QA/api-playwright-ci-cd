@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: Run unit tests
-        run: npm test:unit
+        run: npm run test:unit
 
       - name: Check code coverage
         run: npm run coverage
