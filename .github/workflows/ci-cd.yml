@@ -48,6 +48,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        
+      - name: Build the API
+        run: npm run build
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
       - name: Deploy to UAT
         run: echo "Deploying to UAT environment... (We should be running npm run deploy:uat in actual deployment)"
