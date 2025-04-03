@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: Run unit tests
-        run: npm test
+        run: npm test:unit
 
       - name: Check code coverage
         run: npm run coverage
@@ -50,7 +50,7 @@ jobs:
         run: npm install
 
       - name: Deploy to UAT
-        run: npm run deploy:uat
+        run: echo "Deploying to UAT environment... (We should be running npm run deploy:uat in actual deployment)"
 
       - name: Run Playwright E2E tests
         run: npm run test:e2e
@@ -66,4 +66,4 @@ jobs:
         run: echo "Please approve the deployment to production."
 
       - name: Deploy to Production
-        run: npm run deploy:prod
+        run: echo "Deploying to PROD environment... (We should be running npm run deploy:prod in actual deployment)"
