@@ -75,7 +75,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Manual approval
-        run: echo "Please approve the deployment to production."
+        run: echo "Please approve the deployment to production Environment."
 
       - name: Deploy to Production
         run: echo "Deploying to PROD environment... (We should be running npm run deploy:prod in actual deployment)"
