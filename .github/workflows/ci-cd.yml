@@ -55,15 +55,12 @@ jobs:
       - name: Install dependencies # Install dependencies
         run: npm ci
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
       - name: Deploy to UAT
         run: echo "Deploying to UAT environment... (We should be running npm run deploy:uat in actual deployment)"
 
       - name: Run Playwright E2E tests
         run: npm run test:e2e
-        
+
       - uses: actions/upload-artifact@v4 # Upload test results as an artifact
         if: ${{ !cancelled() }}
         with:
