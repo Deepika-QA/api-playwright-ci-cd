@@ -35,6 +35,7 @@ jobs:
       - name: Check code coverage threshold (<90%)
         run: npx nyc check-coverage --lines 90 --functions 90 --branches 90
   uat:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: ci
     steps:
@@ -68,6 +69,7 @@ jobs:
           path: playwright-report/ # Upload the test results to the playwright-report directory
           retention-days: 30 # Set the retention days to 30 days
   production:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: uat
     environment:
@@ -79,5 +81,5 @@ jobs:
       - name: Manual approval
         run: echo "Please approve the deployment to production Environment."
 
-      - name: Deploy to Production
+      - name: Deploy to Production 
         run: echo "Deploying to PROD environment... (We should be running npm run deploy:prod in actual deployment)"
